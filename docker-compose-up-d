@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if `docker-machine status |fgrep Stopped`; then
+    docker-machine start
+    eval $(docker-machine env)
+fi
+
+docker-compose up -d

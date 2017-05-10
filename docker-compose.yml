@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+
+    python:
+        image: python:3.6-alpine
+        tty: true
+        volumes_from:
+            - storage
+            
+    storage:
+        image: busybox
+        tty: true
+        volumes:
+            - ./storage:/storage
