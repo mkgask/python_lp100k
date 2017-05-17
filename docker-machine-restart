@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo '::docker-machine restart'
 docker-machine restart
-eval $(docker-machine env)
+
+echo '::docker-machine env'
+docker-machine env > ./docker-machine-env.sh
+source ./docker-machine-env.sh
+rm ./docker-machine-env.sh
+
+echo '::docker-compose up -d'
 docker-compose up -d
