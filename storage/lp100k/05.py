@@ -3,6 +3,27 @@
 """05. N-gram."""
 
 
+def charNgram(x, n):
+    """Get N-gram to char."""
+    x = x.replace(' ', '')
+    return [
+        (x[i], x[i + n])
+        for i, y
+        in enumerate(x)
+        if i + n < len(x)
+    ]
+
+
+def charBigram(x):
+    """Get Bi-gram to char."""
+    return charNgram(x, 2)
+
+
+def charTrigram(x):
+    """Get Bi-gram to char."""
+    return charNgram(x, 3)
+
+
 def strNgram(x, n):
     """Get N-gram to str."""
     words = x.split()
@@ -26,3 +47,4 @@ def strTrigram(x):
 
 
 print(strBigram("I am an NLPer"))
+print(charBigram("I am an NLPer"))
