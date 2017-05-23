@@ -24,7 +24,7 @@ def charTrigram(x):
     return charNgram(x, 3)
 
 
-def strNgram(x, n):
+def wordNgram(x, n):
     """Get N-gram to str."""
     words = x.split()
     enumerate_words = enumerate(words)
@@ -36,15 +36,15 @@ def strNgram(x, n):
     ]
 
 
-def strBigram(x):
+def wordBigram(x):
     """Get Bi-gram to str."""
-    return strNgram(x, 2)
+    return wordNgram(x, 2)
 
 
-def strTrigram(x):
+def wordTrigram(x):
     """Get Tri-gram to str."""
-    return strNgram(x, 3)
+    return wordNgram(x, 3)
 
 
-print(strBigram("I am an NLPer"))
+print(wordBigram("I am an NLPer"))
 print(charBigram("I am an NLPer"))
