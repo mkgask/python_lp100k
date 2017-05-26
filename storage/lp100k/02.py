@@ -1,1 +1,1 @@
-print(''.join(sum(zip("パトカー", "タクシー"), ())))
+print("".join(sum(zip("パトカー", "タクシー"), ())))

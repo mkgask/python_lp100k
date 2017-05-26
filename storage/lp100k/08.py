@@ -4,7 +4,7 @@
 
 
 def cipher(text):
-    return ''.join([
+    return "".join([
         chr(219 - ord(char)) if char.islower() else char
         for char
         in text

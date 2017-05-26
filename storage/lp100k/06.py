@@ -5,7 +5,7 @@
 
 def charNgram(x, n):
     """Get N-gram to char."""
-    x = x.replace(' ', '')
+    x = x.replace(" ", "")
     return [
         x[i:i + n]
         for i, y
