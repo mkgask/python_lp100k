@@ -15,4 +15,4 @@ def convertT2S(filepath):
     return r.stdout.encode('utf-8')  # Adjust output
 
 
-print(convertT2S("./data/hightemp.txt"))
+print(convertT2S("data/hightemp.txt"))
