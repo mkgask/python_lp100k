@@ -7,7 +7,7 @@ def charNgram(x, n):
     """Get N-gram to char."""
     x = x.replace(' ', '')
     return [
-        (x[i], x[i + n])
+        x[i:i + n]
         for i, y
         in enumerate(x)
         if i + n < len(x)
