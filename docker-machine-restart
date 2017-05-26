@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo '::docker-machine restart'
+echo '::  docker-machine restart'
 docker-machine restart
 
-echo '::docker-machine env'
-docker-machine env > ./docker-machine-env.sh
-source ./docker-machine-env.sh
-rm ./docker-machine-env.sh
+echo '::  eval $(docker-machine env)'
+eval $(docker-machine env)
 
-echo '::docker-compose up -d'
+echo '::  docker-compose up -d'
 docker-compose up -d
+
+echo '::  Type "eval $(docker-machine env)" if the movement is bad.'

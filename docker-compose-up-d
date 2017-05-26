@@ -1,16 +1,15 @@
 #!/bin/bash
 
-echo '::if [ `docker-machine status |fgrep Stopped` ];'
+echo '::  if [ `docker-machine status |fgrep Stopped` ];'
 if [ `docker-machine status |fgrep Stopped` ]; then
-    echo '::docker-machine start'
+    echo '::  docker-machine start'
     docker-machine start
 
-    echo '::docker-machine env'
-    docker-machine env > ./docker-machine-env.sh
-    source ./docker-machine-env.sh
-    rm ./docker-machine-env.sh
-    #eval $(docker-machine env)
+    echo '::  eval $(docker-machine env)'
+    eval $(docker-machine env)
 fi
 
-echo '::docker-compose up -d'
+echo '::  docker-compose up -d'
 docker-compose up -d
+
+echo '::  Type "eval $(docker-machine env)" in your shell.'
