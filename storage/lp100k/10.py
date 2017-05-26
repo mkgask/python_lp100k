@@ -16,4 +16,4 @@ def lineCount(filepath):
     return r.stdout.split()[0]
 
 
-print(lineCount("./data/hightemp.txt"))
+print(lineCount("data/hightemp.txt"))
