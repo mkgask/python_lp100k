@@ -3,11 +3,11 @@ version: '2'
 services:
 
     python:
-        image: python:3.6-alpine
+        image: python:3.6-slim
         tty: true
         volumes_from:
             - storage
-            
+
     storage:
         image: busybox
         tty: true
