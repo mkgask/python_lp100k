@@ -24,7 +24,7 @@ class outputFileHead:
     def readFileHead(self, filepath, row):
         f = open(filepath)
         filedata = f.read().split("\n")
-        return "\n".join(filedata[0:int(row)]) + "\n"
+        return "\n".join(filedata[0:int(row)]) + "\n" if len(filedata) > int(row) else "\n".join(filedata[0:int(row)])
 
     def correctCheck(self, data, filepath, row):
         r = subprocess.run(["head", "-n" + row, filepath], stdout=subprocess.PIPE)
