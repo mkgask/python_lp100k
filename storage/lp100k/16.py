@@ -13,12 +13,12 @@ import itertools
 class divideFile:
     """DivideFile"""
 
-    def __init__(self, filepath, outpath, n):
+    def __init__(self, filepath, tmppath, n):
         self.initialize()
         data = self.readFileDivide(filepath, n)
         print(data)
-        self.correctCheck(data, filepath, outpath)
-        self.cleanTmpFiles(outpath)
+        self.correctCheck(data, filepath, tmppath)
+        self.cleanTmpFiles(tmppath)
 
     def initialize(self):
         os.chdir(os.path.dirname(sys.argv[0]))
@@ -34,9 +34,9 @@ class divideFile:
         f = open(filepath)
         return f.read()
 
-    def correctCheck(self, data, filepath, outpath):
-        subprocess.run(["split", "--lines=" + str(self.row-1), filepath, outpath], stdout=subprocess.PIPE)
-        filelist = glob.glob(outpath + "*")
+    def correctCheck(self, data, filepath, tmppath):
+        subprocess.run(["split", "--lines=" + str(self.row-1), filepath, tmppath], stdout=subprocess.PIPE)
+        filelist = glob.glob(tmppath + "*")
         for filename, dataOne in zip(filelist, data):
             dataOne = "\n".join(dataOne) + "\n"
             realpath = os.path.realpath(filename)
@@ -45,12 +45,12 @@ class divideFile:
             print(dataOne)
             print(dataOne == filedata)
 
-    def cleanTmpFiles(self, outpath):
-        filelist = glob.glob(outpath + "*")
+    def cleanTmpFiles(self, tmppath):
+        filelist = glob.glob(tmppath + "*")
         for filename in filelist:
             realpath = os.path.realpath(filename)
             if os.path.isfile(realpath):
                 os.unlink(realpath)
 
 
-divideFile("data/hightemp.txt", "data/x", sys.argv[1])
+divideFile("data/hightemp.txt", "data/tmp16-", sys.argv[1])
