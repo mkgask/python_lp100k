@@ -5,7 +5,6 @@
 import os
 import sys
 import subprocess
-from operator import itemgetter
 
 
 class SortByColumn:
