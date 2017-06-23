@@ -60,7 +60,7 @@ class ReadJson:
             f.write(file_data)
 
 
-class pickCategoryName:
+class PickCategoryName:
     """Pickup category name"""
 
     def __init__(self):
@@ -83,4 +83,4 @@ class pickCategoryName:
 
 
 json_data = ReadJson().load('data/jawiki-country.json.gz', 'イギリス')
-print(pickCategoryName().pick(json_data))
+print(PickCategoryName().pick(json_data))
