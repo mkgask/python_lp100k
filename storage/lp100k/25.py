@@ -95,4 +95,4 @@ class PickupTemplates:
 
 
 json_data = ReadJson().load('data/jawiki-country.json.gz', 'イギリス')
-print(PickupTemplates().pick(json_data))
+[print(r) for r in PickupTemplates().pick(json_data)]
